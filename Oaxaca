@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+<title>The Appalachian Trail</title>
+</head> 
+
+
+<body>
+<body style="background-color:lightgrey;">
+
+<center><h1>The Appalachian Trail</h1></center>
+<hr /> 
+<h2>The Most Notable Places</h2>
+
+<p>If you ever decide to hike the Appalachian Trail, you may want to consider what places you would like to see along the way. 
+After all, you will be in the woods for five months! The following links will provide some information on some of the most 
+notable places along the trail.<br /></p>
+
+
+<div style="float:left; width:480px; padding:10px;">
+<p>Mt. Greylock's War Memorial Tower: <a href="http://appalachiantrail.com/20141220/mt-greylocks-war-memorial-tower-gets-2m-repairs/">Link</a><br /></p>
+
+<p>Mt. Katahdin: <a href="http://appalachiantrail.com/20130920/climbing-mt-katahdin-the-greatest-mountain/">Link</a> 
+and <a href="http://benjaminm95.github.io/Mt_Katahdin_3dDrafts/MK1.html">3D Map</a></p>
+
+<p>Appalachian Trail Conservancy Headquarters: <a href="http://appalachiantrail.com/places/appalachian-trail-conservancys-headquarters/">Link</a><br /></p>
+
+<p>The Len Foote Hike Inn: <a href="http://www.hike-inn.com/">Link</a><br /></p>
+
+<p>Natahala Outdoor Center: <a href="https://noc.com/">Link</a><br /></p>
+
+<p>High Point State Park: <a href="http://appalachiantrail.com/20130308/the-appalachian-trail-in-high-point-state-park/">Link</a><br /></p>
+
+<p>Joe Dodge Lodge: <a href="http://www.outdoors.org/lodging-camping/Lodges/pinkham/index.cfm">Link</a><br /></p>
+
+<p>Walton's Mountain Museum: <a href="http://waltonmuseum.org/">Link</a><br /></p>
+
+<p>Teago General Store: <a href="http://appalachiantrail.com/20140719/teago-general-store-south-pomfret-vermont/">Link</a><br /></p>
+
+</div>
+
+
+<a href=""></a>
+<div style="float:left; width:750px; padding:10px;">
+  <center><iframe width="100%" height="500" frameborder="500" src="https://bjmi226.cartodb.com/viz/849bd3ae-0d4a-11e6-8bb0-0ea31932ec1d/embed_map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe></center>
+</div>
+</body>
+
+</html>
