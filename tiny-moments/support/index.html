@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Tiny Moments</title>
+    <style>
+        :root {
+            --blush-pink: #F8E1E4;
+            --sage-green: #B8D4B4;
+            --cream: #FDF8F3;
+            --gold: #D4A574;
+            --brown: #5D4230;
+            --brown-light: #7A5C45;
+            --pink-dark: #E8B5BA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--cream);
+            color: var(--brown);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--blush-pink), var(--sage-green));
+            padding: 48px 24px;
+            text-align: center;
+        }
+
+        .header-inner {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .app-icon {
+            width: 72px;
+            height: 72px;
+            background: white;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            box-shadow: 0 4px 16px rgba(93, 66, 48, 0.12);
+            font-size: 36px;
+        }
+
+        header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--brown);
+            margin-bottom: 4px;
+        }
+
+        header p.subtitle {
+            font-size: 15px;
+            color: var(--brown-light);
+            font-weight: 500;
+        }
+
+        header p.tagline {
+            font-size: 14px;
+            color: var(--brown-light);
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        nav {
+            text-align: center;
+            padding: 12px 24px;
+            background: white;
+            border-bottom: 1px solid var(--blush-pink);
+        }
+
+        nav a {
+            color: var(--brown);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0 12px;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            border-bottom-color: var(--gold);
+        }
+
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        .intro-section {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--blush-pink);
+        }
+
+        .intro-section p {
+            font-size: 16px;
+            color: var(--brown-light);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--brown);
+            margin-bottom: 20px;
+            padding-left: 14px;
+            border-left: 3px solid var(--gold);
+        }
+
+        p {
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: var(--brown-light);
+        }
+
+        a {
+            color: var(--gold);
+            text-decoration: underline;
+            text-decoration-color: rgba(212, 165, 116, 0.4);
+            transition: text-decoration-color 0.2s;
+        }
+
+        a:hover {
+            text-decoration-color: var(--gold);
+        }
+
+        /* FAQ Styles */
+        .faq-section {
+            margin-bottom: 48px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border: 1px solid var(--blush-pink);
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 2px 12px rgba(93, 66, 48, 0.08);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 20px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--brown);
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+            line-height: 1.5;
+        }
+
+        .faq-question:hover {
+            background: rgba(248, 225, 228, 0.2);
+        }
+
+        .faq-chevron {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-left: 16px;
+            transition: transform 0.3s ease;
+            color: var(--gold);
+        }
+
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer-inner {
+            padding: 0 24px 20px;
+            font-size: 15px;
+            color: var(--brown-light);
+            line-height: 1.7;
+        }
+
+        .faq-answer-inner ol,
+        .faq-answer-inner ul {
+            margin: 8px 0 8px 20px;
+        }
+
+        .faq-answer-inner li {
+            margin-bottom: 4px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            margin-bottom: 48px;
+        }
+
+        .contact-card {
+            background: white;
+            border: 1px solid var(--sage-green);
+            border-radius: 12px;
+            padding: 28px 24px;
+            text-align: center;
+        }
+
+        .contact-card .icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .contact-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--brown);
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            font-size: 14px;
+            color: var(--brown-light);
+            margin-bottom: 16px;
+        }
+
+        .contact-email {
+            display: inline-block;
+            background: var(--blush-pink);
+            color: var(--brown);
+            text-decoration: none;
+            padding: 10px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: background 0.2s;
+        }
+
+        .contact-email:hover {
+            background: var(--pink-dark);
+            text-decoration: none;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            margin-bottom: 48px;
+        }
+
+        .tip-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .tip-card {
+            background: white;
+            border: 1px solid var(--blush-pink);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .tip-card .tip-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .tip-card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--brown);
+            margin-bottom: 6px;
+        }
+
+        .tip-card p {
+            font-size: 13px;
+            color: var(--brown-light);
+            margin-bottom: 0;
+        }
+
+        /* Links Section */
+        .links-section {
+            text-align: center;
+            padding: 28px 24px;
+            background: rgba(184, 212, 180, 0.15);
+            border-radius: 12px;
+            border: 1px solid var(--sage-green);
+        }
+
+        .links-section h2 {
+            border-left: none;
+            padding-left: 0;
+            text-align: center;
+        }
+
+        .links-section a {
+            display: inline-block;
+            margin: 4px 12px;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 32px 24px;
+            background: white;
+            border-top: 1px solid var(--blush-pink);
+            font-size: 13px;
+            color: var(--brown-light);
+        }
+
+        footer a {
+            color: var(--gold);
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 36px 20px;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            main {
+                padding: 28px 20px 60px;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 13px;
+            }
+
+            .tip-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-question {
+                padding: 16px 20px;
+                font-size: 14px;
+            }
+
+            .faq-answer-inner {
+                padding: 0 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="app-icon" aria-hidden="true">&#127860;</div>
+            <h1>Tiny Moments</h1>
+            <p class="subtitle">Support Center</p>
+            <p class="tagline">Capture every precious milestone in your baby's journey</p>
+        </div>
+    </header>
+
+    <nav>
+        <a href="../privacy/">Privacy Policy</a>
+        <a href="../support/" class="active">Support</a>
+    </nav>
+
+    <main>
+        <div class="intro-section">
+            <p>Need help with Tiny Moments? Browse the frequently asked questions below or reach out to our support team. We are here to help you capture every precious milestone.</p>
+        </div>
+
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    How do I add a new milestone?
+                    <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <ol>
+                            <li>Open the Tiny Moments app and navigate to your baby's profile.</li>
+                            <li>Tap the <strong>+</strong> button at the bottom of the screen.</li>
+                            <li>Choose a milestone category (e.g., First Steps, First Words, First Foods).</li>
+                            <li>Add a date, photo, and any notes you would like to remember.</li>
+                            <li>Tap <strong>Save</strong> to record the milestone.</li>
+                        </ol>
+                        <p style="margin-top: 12px;">You can also add custom milestones by selecting "Custom Milestone" from the category list.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    How do I upgrade to Tiny Moments Pro?
+                    <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <ol>
+                            <li>Open the Tiny Moments app.</li>
+                            <li>Tap the <strong>Settings</strong> icon (gear icon) in the top-right corner.</li>
+                            <li>Tap <strong>Upgrade to Pro</strong>.</li>
+                            <li>Review the Pro features and pricing, then tap <strong>Subscribe</strong> or <strong>Purchase</strong>.</li>
+                            <li>Confirm the purchase with Face ID, Touch ID, or your Apple ID password.</li>
+                        </ol>
+                        <p style="margin-top: 12px;"><strong>Pro benefits include:</strong> Ad-free experience, unlimited PDF exports, premium milestone templates, and more.</p>
+                        <p>If you have previously purchased Pro, tap <strong>Restore Purchases</strong> on the upgrade screen to restore your subscription.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    How do I export a milestone as a PDF?
+                    <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <ol>
+                            <li>Open the milestone you would like to export.</li>
+                            <li>Tap the <strong>Share</strong> button (square with an arrow) in the top-right corner.</li>
+                            <li>Select <strong>Export as PDF</strong> from the menu.</li>
+                            <li>Choose a layout template for your PDF.</li>
+                            <li>Preview the PDF, then tap <strong>Save</strong> or <strong>Share</strong> to send it to Files, email, Messages, or another app.</li>
+                        </ol>
+                        <p style="margin-top: 12px;">Free users can export a limited number of PDFs per month. Upgrade to Pro for unlimited PDF exports.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    How do I share milestones with family and friends?
+                    <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <ol>
+                            <li>Open the milestone you would like to share.</li>
+                            <li>Tap the <strong>Share</strong> button (square with an arrow).</li>
+                            <li>Choose how you would like to share:
+                                <ul>
+                                    <li><strong>Share as Image:</strong> Creates a beautifully designed milestone card you can send via Messages, WhatsApp, or social media.</li>
+                                    <li><strong>Share as PDF:</strong> Exports a detailed PDF with photos and notes.</li>
+                                    <li><strong>Copy Link:</strong> If you have created a shareable milestone card.</li>
+                                </ul>
+                            </li>
+                            <li>Select the app or contact you would like to share with.</li>
+                        </ol>
+                        <p style="margin-top: 12px;">All sharing is initiated by you -- Tiny Moments never automatically shares your data with anyone.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    How do I add or manage multiple babies?
+                    <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <ol>
+                            <li>From the home screen, tap your baby's name at the top to open the profile switcher.</li>
+                            <li>Tap <strong>Add Baby</strong> to create a new profile.</li>
+                            <li>Enter the baby's name, birth date, and an optional photo.</li>
+                            <li>Tap <strong>Save</strong> to add the new profile.</li>
+                        </ol>
+                        <p style="margin-top: 12px;">You can switch between profiles at any time by tapping the name at the top of the home screen. Each baby has their own separate milestone timeline.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    What happens to my data if I delete the app?
+                    <svg class="faq-chevron" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <p>Since all data is stored locally on your device, deleting the Tiny Moments app will permanently remove all your milestone data, baby profiles, and saved photos from the app. This action cannot be undone.</p>
+                        <p style="margin-top: 8px;">We recommend exporting your important milestones as PDFs or images before deleting the app. If you have a Pro subscription, your subscription status can be restored by re-downloading the app and tapping "Restore Purchases."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tips-section">
+            <h2>Quick Tips</h2>
+            <div class="tip-cards">
+                <div class="tip-card">
+                    <div class="tip-icon" aria-hidden="true">&#128247;</div>
+                    <h3>Best Photos</h3>
+                    <p>Use natural lighting and get down to your baby's eye level for the best milestone photos.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon" aria-hidden="true">&#128221;</div>
+                    <h3>Add Notes</h3>
+                    <p>Include small details in your notes -- you will treasure these memories later.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon" aria-hidden="true">&#128276;</div>
+                    <h3>Notifications</h3>
+                    <p>Enable reminders so you never miss recording an upcoming milestone.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon" aria-hidden="true">&#128230;</div>
+                    <h3>Export Often</h3>
+                    <p>Regularly export PDFs as keepsakes and backups of your precious moments.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2>Contact Us</h2>
+            <div class="contact-card">
+                <div class="icon" aria-hidden="true">&#9993;</div>
+                <h3>Need More Help?</h3>
+                <p>Our support team is happy to assist you. We typically respond within 24 hours.</p>
+                <a href="mailto:support@craftedbydev.com" class="contact-email">support@craftedbydev.com</a>
+                <p style="margin-top: 16px; font-size: 13px;">Please include your device model and iOS version when reporting issues.</p>
+            </div>
+        </div>
+
+        <div class="links-section">
+            <h2>Useful Links</h2>
+            <p>
+                <a href="../privacy/">Privacy Policy</a>
+                &nbsp;&middot;&nbsp;
+                <a href="mailto:support@craftedbydev.com">Email Support</a>
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 CraftedByDev. All rights reserved.</p>
+        <p style="margin-top: 8px;">
+            <a href="../privacy/">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="../support/">Support</a>
+        </p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var item = this.parentElement;
+                var answer = item.querySelector('.faq-answer');
+                var isOpen = item.classList.contains('open');
+
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(function(otherItem) {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('open');
+                        otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                        otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                    }
+                });
+
+                // Toggle current item
+                if (isOpen) {
+                    item.classList.remove('open');
+                    this.setAttribute('aria-expanded', 'false');
+                    answer.style.maxHeight = null;
+                } else {
+                    item.classList.add('open');
+                    this.setAttribute('aria-expanded', 'true');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
